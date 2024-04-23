@@ -1,15 +1,25 @@
 // Imports
+import { searchMovies, searchPersons, mostPopular, topRated } from "./api.js";
 
 // HTML elements
-const form = document.getElementById("searchForm");
-const searchField = document.querySelector("input")
+const searchForm = document.getElementById("searchForm");
+const topRatedBtn = document.getElementById("topRatedBtn"); 
+const popularBtn = document.getElementById("popularBtn");
 
-search();
+// Event listeners
+searchForm.addEventListener("submit", search);
+topRatedBtn.addEventListener("click", topRated);
+popularBtn.addEventListener("click", mostPopular);
 
-function search(){
-    form.addEventListener("submit", event=>{
-        event.preventDefault();
-        let searchTerm = searchField.value;
-        console.log(searchTerm);
-    })
+// Functions
+function search(event){
+    event.preventDefault();
+    const searchTerm = document.getElementById("searchField").value;
+    const searchType = document.getElementById("type").value;
+    searchForm.reset();
+
+    if (searchType == "movie")
+        searchMovies(searchTerm);
+    else
+        searchPersons(searchTerm);
 }

@@ -9,11 +9,20 @@
     <title>Slutprojekt</title>
 </head>
 <body>
-    <div id="searchdiv">
+    <div id="searchDiv">
         <form id="searchForm">
-            <input type="text">
-            <button>Search</button>
+            <input type="text" id="searchField">
+            <select id="type" name="type">
+                <option value="movie">Movies</option>
+                <option value="person">Persons</option>
+            </select>
+            <button id="searchBtn">Search</button>
         </form>
+        <button id="topRatedBtn">Show top rated</button>
+        <button id="popularBtn">Show popular</button>
+    </div>
+    <div id="dataContainer">
+        <!-- Search results, top rated and popular movies goes here -->
     </div>
 </body>
 </html>
