@@ -1,4 +1,4 @@
-// Imports
+
 import { displayMovies, displayPersons } from "./display.js";
 
 // API info
@@ -10,39 +10,52 @@ const options = {
     }
   };
 const baseUrl = "https://api.themoviedb.org/3/";
-const mostPopularUrl = "movie/popular";
-const topRatedUrl = "movie/top_rated";
-let search = "search/multi?query=";
 let pageNumber = "?page="
 
-// Functions
 export async function searchPersons(searchTerm) {
+  try {
     const url = `${baseUrl}search/person?include_adult=false&query=${searchTerm}`;
     const response = await fetch(url, options);
     const data = await response.json();
-    displayPersons(data.results);
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Three below repeats same stuff, optimise!!!
+// Should also not call displayMovies, instead 
 export async function searchMovies(searchTerm) {
-  const url = `${baseUrl}search/movie?include_adult=false&query=${searchTerm}`;
-  const response = await fetch(url, options);
-  const data = await response.json();
-  displayMovies(data.results);
+  try {
+    const url = `${baseUrl}search/movie?include_adult=false&query=${searchTerm}`;
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function mostPopular() {
-  const url = baseUrl + "movie/popular";
-  const response = await fetch(url, options);
-  const data = await response.json();
-  const topTen = data.results.slice(0, 10);
-  displayMovies(topTen);
+  try {
+    const url = baseUrl + "movie/popular";
+    const response = await fetch(url, options);
+    const data = await response.json();
+    const topTen = data.results.slice(0, 10);
+    return topTen;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function topRated() {
-  const url = baseUrl + "movie/top_rated";
-  const response = await fetch(url, options);
-  const data = await response.json();
-  const topTen = data.results.slice(0, 10);
-  displayMovies(topTen);
+  try {
+    const url = baseUrl + "movie/top_rated";
+    const response = await fetch(url, options);
+    const data = await response.json();
+    const topTen = data.results.slice(0, 10);
+    return topTen;
+  } catch (error) {
+    console.log(error);
+  }
 }

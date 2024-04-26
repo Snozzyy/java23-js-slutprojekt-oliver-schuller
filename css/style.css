@@ -1,4 +1,23 @@
+body {
+    text-align: center;
+    margin-top: 10px;
+}
+
 img {
     max-width: 15%;
     max-height: 15%;
+}
+
+#searchForm {
+    margin-bottom: 10px;
+}
+
+#dataContainer p {
+    max-width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.movie-div {
+    margin: 50px;
 }
