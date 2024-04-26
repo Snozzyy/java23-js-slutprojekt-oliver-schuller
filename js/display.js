@@ -49,7 +49,7 @@ export function displayPersons(dataSet) {
             const personImage = person.profile_path;
                 let personImgUrl = ""
                 if (personImage == null) {
-                    personImgUrl = "../images/no-image-found.png";
+                    personImgUrl = "./images/no-image-found.png";
                 } else {
                     personImgUrl = `https://image.tmdb.org/t/p/original${personImage}`;
                 }
