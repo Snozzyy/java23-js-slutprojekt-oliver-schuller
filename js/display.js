@@ -18,7 +18,7 @@ export function displayMovies(dataSet) {
         const moviePoster = movie.poster_path;
         let movieImgUrl = ""
         if (moviePoster == null) {
-            movieImgUrl = "../images/no-image-found.png";
+            movieImgUrl = "./images/no-image-found.png";
         } else {
             movieImgUrl = `https://image.tmdb.org/t/p/original${moviePoster}`;
         }

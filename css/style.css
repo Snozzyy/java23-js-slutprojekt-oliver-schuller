@@ -21,3 +21,7 @@ img {
 .movie-div {
     margin: 50px;
 }
+
+ul {
+    list-style-position: inside;
+}
